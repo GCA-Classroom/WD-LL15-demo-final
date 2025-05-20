@@ -7,14 +7,14 @@ const weatherBtn = document.getElementById('weatherBtn');
 
 // This function sends a prompt to the OpenAI API and displays the response
 async function getIcebreakerResponse(prompt) {
-  // Show a loading message
-  responseContainer.textContent = 'Thinking...';
+  // Show a fun loading message
+  responseContainer.textContent = "Breaking the silence... 🧊";
 
   // Prepare the messages for the API
   const messages = [
     {
       role: 'system',
-      content: `You are a friendly conversation starter bot. Give short, fun, and light-hearted responses.`
+      content: `You are a witty and welcoming assistant whose job is to break awkward silences in group conversations. Your responses should be fun, light-hearted, and spark group interaction without putting anyone on the spot. Aim for responses that feel casual and natural, like something a clever friend might say to fill the silence. I only need the content in your response.`
     },
     {
       role: 'user',
@@ -45,7 +45,7 @@ async function getIcebreakerResponse(prompt) {
 // Add event listeners to each button
 iceBtn.addEventListener('click', () => {
   // Ask for a general icebreaker question or topic
-  getIcebreakerResponse('Give me a fun icebreaker question or topic.');
+  getIcebreakerResponse('Give me a fun meeting icebreaker question or topic.');
 });
 
 factBtn.addEventListener('click', () => {
@@ -55,10 +55,10 @@ factBtn.addEventListener('click', () => {
 
 jokeBtn.addEventListener('click', () => {
   // Ask for a mild, friendly joke
-  getIcebreakerResponse('Tell me a mild, friendly joke.');
+  getIcebreakerResponse('Tell me a mild, friendly joke I can share with classmates.');
 });
 
 weatherBtn.addEventListener('click', () => {
   // Ask for a light comment about the weather
-  getIcebreakerResponse('Say something light or funny about the weather.');
+  getIcebreakerResponse('Write a conversation starter that opens with a weather-related question and invites people to check outside and share.');
 });

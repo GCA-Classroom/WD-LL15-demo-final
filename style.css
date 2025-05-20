@@ -15,27 +15,28 @@ body {
   padding-bottom: 20px;
   min-height: 100vh;
   background: linear-gradient(135deg, #f7cac9 0%, #92a8d1 100%);
-  /* Soft pink to blue gradient */
 }
 
 .container {
-  max-width: 760px; /* Increased from 620px */
+  max-width: 700px;
   margin: 0 auto;
-  width: 99%;       /* Slightly wider for flexibility */
-  background: #ffffff; /* Pure white background */
+  width: 90%;
+  background: #ffffff;
   border-radius: 18px;
   box-shadow: 0 4px 24px rgba(60, 60, 120, 0.13);
   padding: 32px 24px 24px 24px;
   text-align: center;
-  border: 2px solid #b4c5e4; /* Soft blue border */
+  border: 2px solid #b4c5e4;
 }
 
 h1 {
   font-family: 'Poppins', sans-serif;
   color: #5e548e;
   margin: 0;
-  font-size: 40px;
+  line-height: 1.2;
+  font-size: 58px;
   letter-spacing: 1px;
+  margin-bottom: 12px;
 }
 
 p {
@@ -53,24 +54,27 @@ p {
   white-space: pre-wrap;
   background-color: #e0e7ff;
   box-shadow: 0 2px 8px rgba(94, 84, 142, 0.08);
-  min-height: 60px;
+  min-height: 120px; 
   font-size: 18px;
+  line-height: 1.5;
   border: 1.5px solid #b4aee8;
 }
 
-/* Icebreaker buttons section */
 #icebreaker-buttons {
   display: flex;
   gap: 16px;
-  justify-content: center;
+  justify-content: stretch;
+  align-items: stretch;
   margin-bottom: 30px;
-  margin-top: 16px;
+  margin-top: 40px;
+  width: 100%;
 }
 
 #icebreaker-buttons button {
+  flex: 1 1 0;
   font-size: 17px;
-  padding: 12px 18px;
-  background: linear-gradient(to bottom, #f3e8ff 0%, #e0e7ff 100%); /* Subtle lavender to blue */
+  padding: 12px 0; /* Remove horizontal padding to allow more space for content */
+  background: linear-gradient(to bottom, #f3e8ff 0%, #e0e7ff 100%);
   color: #5e548e;
   border: none;
   border-radius: 8px;
@@ -80,6 +84,15 @@ p {
   font-weight: 600;
   box-shadow: 0 2px 8px rgba(180, 197, 228, 0.10);
   outline: none;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+#icebreaker-buttons button i {
+  margin-right: 0; /* Remove margin, gap handles spacing */
 }
 
 #icebreaker-buttons button:hover {
@@ -87,17 +100,9 @@ p {
   transform: translateY(-2px) scale(1.04);
 }
 
-/* Responsive adjustments */
 @media (max-width: 600px) {
-  .container {
-    padding: 16px 4px 12px 4px;
-  }
   #icebreaker-buttons {
     flex-direction: column;
     gap: 10px;
-  }
-  #response {
-    padding: 14px;
-    font-size: 16px;
   }
 }
