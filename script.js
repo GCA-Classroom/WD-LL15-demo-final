@@ -1,29 +1,33 @@
 // Get references to the HTML elements
-const chatForm = document.getElementById('chatForm');
-const userInput = document.getElementById('userInput');
 const responseContainer = document.getElementById('response');
+const iceBtn = document.getElementById('iceBtn');
+const factBtn = document.getElementById('factBtn');
+const jokeBtn = document.getElementById('jokeBtn');
+const weatherBtn = document.getElementById('weatherBtn');
 
-// Initialize an array to keep track of the conversation history
-let messages = [
-  { role: 'system', content: `You are a friendly Budget Travel Planner, specializing in cost-conscious travel advice. You help users find cheap flights, budget-friendly accommodations, affordable itineraries, and low-cost activities in their chosen destination.
+// This function sends a prompt to the OpenAI API and displays the response
+async function getIcebreakerResponse(prompt) {
+  // Show a loading message
+  responseContainer.textContent = 'Thinking...';
 
-  If a user's query is unrelated to budget travel, respond by stating that you do not know.`}
-];
-
-// Add event listener to the form
-chatForm.addEventListener('submit', async (event) => {
-  event.preventDefault(); // Prevent the form from submitting the traditional way
-  responseContainer.textContent = 'Thinking...'; // Display a loading message
-
-  // Add the user's message to the conversation history
-  messages.push({ role: 'user', content: userInput.value });
+  // Prepare the messages for the API
+  const messages = [
+    {
+      role: 'system',
+      content: `You are a friendly conversation starter bot. Give short, fun, and light-hearted responses.`
+    },
+    {
+      role: 'user',
+      content: prompt
+    }
+  ];
 
   // Send a POST request to the OpenAI API
   const response = await fetch('https://api.openai.com/v1/chat/completions', {
-    method: 'POST', // We are POST-ing data to the API
+    method: 'POST',
     headers: {
-      'Content-Type': 'application/json', // Set the content type to JSON
-      'Authorization': `Bearer ${apiKey}` // Include the API key for authorization
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}` // apiKey should be defined in secrets.js
     },
     body: JSON.stringify({
       model: 'gpt-4o',
@@ -31,15 +35,30 @@ chatForm.addEventListener('submit', async (event) => {
     })
   });
 
-  // Parse and store the response data
+  // Parse the response
   const result = await response.json();
 
-  // Add the AI's response to the conversation history
-  messages.push({ role: 'assistant', content: result.choices[0].message.content });
-
-  // Display the response on the page
+  // Show the AI's response
   responseContainer.textContent = result.choices[0].message.content;
+}
 
-  // Clear the input field
-  userInput.value = '';
+// Add event listeners to each button
+iceBtn.addEventListener('click', () => {
+  // Ask for a general icebreaker question or topic
+  getIcebreakerResponse('Give me a fun icebreaker question or topic.');
+});
+
+factBtn.addEventListener('click', () => {
+  // Ask for a weird or surprising fact
+  getIcebreakerResponse('Tell me a weird or surprising fact.');
+});
+
+jokeBtn.addEventListener('click', () => {
+  // Ask for a mild, friendly joke
+  getIcebreakerResponse('Tell me a mild, friendly joke.');
+});
+
+weatherBtn.addEventListener('click', () => {
+  // Ask for a light comment about the weather
+  getIcebreakerResponse('Say something light or funny about the weather.');
 });
