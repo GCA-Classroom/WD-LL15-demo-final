@@ -66,7 +66,7 @@ p {
   justify-content: stretch;
   align-items: stretch;
   margin-bottom: 30px;
-  margin-top: 25px;
+  margin-top: 30px;
   width: 100%;
 }
 
@@ -102,7 +102,7 @@ p {
 
 .context-dropdown {
   width: 100%;
-  margin-top: 30px;
+  margin-top: 25px;
   text-align: left;
 }
 
