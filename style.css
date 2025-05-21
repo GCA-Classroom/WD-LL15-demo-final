@@ -36,7 +36,7 @@ h1 {
   line-height: 1.2;
   font-size: 58px;
   letter-spacing: 1px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 p {
@@ -66,7 +66,7 @@ p {
   justify-content: stretch;
   align-items: stretch;
   margin-bottom: 30px;
-  margin-top: 40px;
+  margin-top: 25px;
   width: 100%;
 }
 
@@ -76,7 +76,7 @@ p {
   padding: 12px 0; /* Remove horizontal padding to allow more space for content */
   background: linear-gradient(to bottom, #f3e8ff 0%, #e0e7ff 100%);
   color: #5e548e;
-  border: none;
+  border: solid 2px #e0e7ff;
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
@@ -98,6 +98,33 @@ p {
 #icebreaker-buttons button:hover {
   background: linear-gradient(to bottom, #e0e7ff 0%, #f3e8ff 100%);
   transform: translateY(-2px) scale(1.04);
+}
+
+.context-dropdown {
+  width: 100%;
+  margin-top: 30px;
+  text-align: left;
+}
+
+.context-label {
+  font-size: 16px;
+  color: #5e548e;
+  font-family: 'Poppins', sans-serif;
+  margin-right: 8px;
+}
+
+.context-select {
+  font-size: 16px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1.5px solid #b4aee8;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-top: 8px;
+  background: #f8f8ff;
+  color: #5e548e;
+  font-family: 'Inter', sans-serif;
 }
 
 @media (max-width: 600px) {
