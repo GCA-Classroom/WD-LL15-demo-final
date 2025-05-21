@@ -1,1 +1,1 @@
-# WD - LiveLab #15 Demo
+# WD - LiveLab #15: Completed Demo
